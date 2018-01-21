@@ -2,13 +2,17 @@
 #
 # Check https://circleci.com/docs/2.0/language-ruby/ for more details
 #
+references:
+  cache_key: &cache_key
+    v2-dependencies-{{ checksum "Gemfile.lock" }}
+
 version: 2
 jobs:
   build:
     docker:
       # specify the version you desire here
-       - image: circleci/ruby:2.4-node-browsers
-       # - image: circleci/postgres:9.6-alpine
+      - image: circleci/ruby:2.4-node-browsers
+      # - image: circleci/postgres:9.6-alpine
 
     working_directory: ~/picup
 
@@ -18,8 +22,7 @@ jobs:
       # Download and cache dependencies
       - restore_cache:
           keys:
-          - v2-dependencies-{{ checksum "Gemfile.lock" }}
-          # fallback to using the latest cache if no exact match is found
+          - *cache_key
           - v2-dependencies-
 
       - run:
@@ -30,7 +33,7 @@ jobs:
       - save_cache:
           paths:
             - ./vendor/bundle
-          key: v2-dependencies-{{ checksum "Gemfile.lock" }}
+          key: *cache_key
         
       # Database setup
       - run: bundle exec rails db:create
