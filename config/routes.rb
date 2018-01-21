@@ -1,3 +1,3 @@
 Rails.application.routes.draw do
-  get '/', to: 'picup#index'
+  get '/', to: 'picup#index', as: :index
 end
