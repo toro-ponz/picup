@@ -10,7 +10,7 @@ jobs:
        - image: circleci/ruby:2.4-node-browsers
        - image: circleci/postgres:9.6-alpine
 
-    working_directory: ~/repo
+    working_directory: ~/picup
 
     steps:
       - checkout
