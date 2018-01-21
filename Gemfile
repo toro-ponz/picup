@@ -11,7 +11,7 @@ gem 'rails', '~> 5.1.4'
 # developmentではSQLiteを使用する
 gem 'sqlite3', group: :development
 # productionではPostgreSQLを使用する
-gem 'pg', group: :production
+gem 'pg', '~> 0.21.0', group: :production
 # Use Puma as the app server
 gem 'puma', '~> 3.7'
 # Use SCSS for stylesheets
