@@ -47,4 +47,4 @@ jobs:
           destination: test-results
 notify:
   webhooks:
-    - url: https://discordapp.com/api/webhooks/404922042459357195/qcx8oczcwwcaqnQmYdYl2EotmDSZvE5UDAhGMQOl-QDV73LEpWF7sjRI7XDwlF1ediwK/circleci
+    - url: https://discordapp.com/api/webhooks/404922042459357195/qcx8oczcwwcaqnQmYdYl2EotmDSZvE5UDAhGMQOl-QDV73LEpWF7sjRI7XDwlF1ediwK/slack
