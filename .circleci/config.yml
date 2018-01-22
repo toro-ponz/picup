@@ -44,4 +44,4 @@ jobs:
           path: /artifacts
 notify:
   webhooks:
-    - url: https://discordapp.com/api/webhooks/404933579207081994/Ue3JvR5Q1HojiSyTv_AlZFQzjtECZg0Bhxjqel0ZxGYhCj1zrBVjlwgQHbjDZIeYSIzn
+    - url: https://discordapp.com/api/webhooks/404933579207081994/Ue3JvR5Q1HojiSyTv_AlZFQzjtECZg0Bhxjqel0ZxGYhCj1zrBVjlwgQHbjDZIeYSIzn/github
