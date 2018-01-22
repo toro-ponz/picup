@@ -47,4 +47,4 @@ jobs:
           destination: test-results
 notify:
   webhooks:
-    - url: https://discordapp.com/api/webhooks/404927605775532042/kivdlXZeBm9DfZWYeFXIK0Z0WrBw6vVTEI-zfeXce33hsTXGh5Eh5CO7--jLEpp7t1SP/github
+    - url: https://discordapp.com/api/webhooks/404933579207081994/Ue3JvR5Q1HojiSyTv_AlZFQzjtECZg0Bhxjqel0ZxGYhCj1zrBVjlwgQHbjDZIeYSIzn/circleci
