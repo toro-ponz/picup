@@ -8,8 +8,6 @@ jobs:
     docker:
       # specify the version you desire here
       - image: circleci/ruby:2.4-node-browsers
-        environment:
-          CIRCLE_TEST_REPORTS: /tmp/test-results
       # - image: circleci/postgres:9.6-alpine
 
     working_directory: ~/picup
@@ -25,12 +23,10 @@ jobs:
 
       - run:
           name: install dependencies
-          command: |
-            bundle install --jobs=4 --retry=3 --path vendor/bundle
+          command: bundle install --jobs=4 --retry=3 --path vendor/bundle
 
       - save_cache:
-          paths:
-            - ./vendor/bundle
+          path: ./vendor/bundle
           key: v2-dependencies-{{ checksum "Gemfile.lock" }}
         
       # Database setup
@@ -43,10 +39,9 @@ jobs:
 
       # collect reports
       - store_test_results:
-          path: /tmp/test-results
+          path: /test-results
       - store_artifacts:
-          path: /tmp/test-results
-          destination: test-results
+          path: /artifacts
 notify:
   webhooks:
     - url: https://discordapp.com/api/webhooks/404933579207081994/Ue3JvR5Q1HojiSyTv_AlZFQzjtECZg0Bhxjqel0ZxGYhCj1zrBVjlwgQHbjDZIeYSIzn
