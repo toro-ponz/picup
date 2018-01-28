@@ -44,5 +44,5 @@ jobs:
       - store_artifacts:
           path: /artifacts
 notify:
-  commands:
-    - curl -X POST -d '{"content": "hogehoge"}' -H 'Content-Type: application/json' https://discordapp.com/api/webhooks/407192311890444288/Ww7jt9ZDM-1K0VgBZ4kNo0bmkAJT9mYDSJSB0xTYF6FGVvIYJbRphCJs1hZfFfnfUFNr
+  command: |
+    curl -X POST -d '{"content": "hogehoge"}' -H 'Content-Type: application/json' https://discordapp.com/api/webhooks/407192311890444288/Ww7jt9ZDM-1K0VgBZ4kNo0bmkAJT9mYDSJSB0xTYF6FGVvIYJbRphCJs1hZfFfnfUFNr
