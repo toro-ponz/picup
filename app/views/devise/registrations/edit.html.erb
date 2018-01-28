@@ -19,6 +19,7 @@
   </div>
 
   <div class="field">
+    <%= f.label :icon %><br />
     <% if current_user.icon_path.url.present? %>
       <%= image_tag(current_user.icon_path.url) %>
     <% end %>
