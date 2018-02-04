@@ -1,0 +1,58 @@
+header.picup-header {
+  nav {
+    background: #f8f9fa;
+    padding-left: 20px;
+    padding-right: 20px;
+
+    .picup-logo {
+      color: #007bff;
+      font-size: 3rem;
+      font-weight: bold;
+    }
+
+    .navbar-toggler {
+      width: 40px;
+      height: 40px;
+      border-radius: 5px;
+    }
+
+    .left-menu {
+      font-size: 1.5rem;
+    }
+
+    .right-menu {
+      .dropdown-menu {
+        font-size: 1.5rem;
+        width: 100%;
+
+        .dropdown-item {
+          padding: 0.5rem;
+
+          p {
+            text-align: center;
+            margin: 0;
+          }
+        }
+      }
+
+      .btn {
+        font-size: 1.5rem;
+        margin: 0.3rem;
+        padding: 0.75rem 1.5rem;
+        border-radius: 5px;
+      }
+
+      .btn-register {
+        color: #28a745;
+        background-color: white;
+        border-color: #28a745;
+      }
+
+      .btn-login {
+        color: #fff;
+        background-color: #007bff;
+        border-color: #007bff;
+      }
+    }
+  }
+}
