@@ -19,6 +19,15 @@
   </div>
 
   <div class="field">
+    <%= f.label :icon %><br />
+    <% if current_user.icon_path.url.present? %>
+      <%= image_tag(current_user.icon_path.url) %>
+    <% end %>
+    <%= f.file_field :icon_path %>
+    <%= f.hidden_field :icon_path_cache %>
+  </div>
+
+  <div class="field">
     <%= f.label :email %><br />
     <%= f.email_field :email, autocomplete: "email" %>
   </div>

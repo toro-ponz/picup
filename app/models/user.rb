@@ -12,5 +12,7 @@ class User < ApplicationRecord
     presence: true,
     uniqueness: { case_sensitive: :false }, 
     length: { minimum: 4, maximum: 20 }, 
-    format: { with: /\A[a-zA-Z0-9_]+\z/ } 
+    format: { with: /\A[a-zA-Z0-9_]+\z/ }
+
+  mount_uploader :icon_path, ImageUploader
 end
