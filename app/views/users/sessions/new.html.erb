@@ -1,26 +1,29 @@
-<h2>Log in</h2>
+<div class="users-sessions-new">
+  <div class="container">
+    <div class="login-form">
+      <div class="picup-logo">
+        <span>Picup</span>
+      </div>
+      <%= form_for(resource, as: resource_name, url: session_path(resource_name)) do |f| %>
+        <div class="login-email">
+          <%= f.email_field :email, autofocus: true, autocomplete: "email", placeholder: "メールアドレス" %>
+        </div>
 
-<%= form_for(resource, as: resource_name, url: session_path(resource_name)) do |f| %>
-  <div class="field">
-    <%= f.label :email %><br />
-    <%= f.email_field :email, autofocus: true, autocomplete: "email" %>
-  </div>
+        <div class="login-password">
+          <%= f.password_field :password, autocomplete: "off", placeholder: "パスワード" %>
+        </div>
 
-  <div class="field">
-    <%= f.label :password %><br />
-    <%= f.password_field :password, autocomplete: "off" %>
-  </div>
+        <% if devise_mapping.rememberable? -%>
+          <div class="login-remember">
+            <%= f.check_box :remember_me, class: "remember-me-checkbox" %>
+            <%= f.label :remember_me, "ログイン情報を記憶する", class: "remember-me-label" %>
+          </div>
+        <% end -%>
 
-  <% if devise_mapping.rememberable? -%>
-    <div class="field">
-      <%= f.check_box :remember_me %>
-      <%= f.label :remember_me %>
+        <%= f.submit "ログイン", class: "btn btn-login" %>
+      <% end %>
+
+      <%= render "users/shared/links" %>
     </div>
-  <% end -%>
-
-  <div class="actions">
-    <%= f.submit "Log in" %>
   </div>
-<% end %>
-
-<%= render "users/shared/links" %>
+</div>
