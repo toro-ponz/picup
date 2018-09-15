@@ -7,8 +7,16 @@ jobs:
   build:
     docker:
       # specify the version you desire here
-      - image: circleci/ruby:2.4-node-browsers
-      # - image: circleci/postgres:9.6-alpine
+      - image: circleci/ruby:2.4-node
+        environment:
+          RAILS_ENV: test
+          PGHOST: 127.0.0.1
+          PGUSER: root
+      - image: circleci/postgres:9.6
+        environment:
+          POSTGRES_DB: picup
+          POSTGRES_USER: root
+          POSTGRES_PASSWORD: root
 
     working_directory: ~/picup
 
@@ -18,22 +26,24 @@ jobs:
       # Download and cache dependencies
       - restore_cache:
           keys:
-          - v2-dependencies-{{ checksum "Gemfile.lock" }}
-          - v2-dependencies-
+          - dependencies-{{ checksum "Gemfile.lock" }}
+          - dependencies-
 
       - run:
           name: install dependencies
           command: |
             bundle install --jobs=4 --retry=3 --path vendor/bundle
 
+      - run: sudo apt install -y postgresql-client || true
+
       - save_cache:
           paths:
             - ./vendor/bundle
-          key: v2-dependencies-{{ checksum "Gemfile.lock" }}
-        
+          key: dependencies-{{ checksum "Gemfile.lock" }}
+
       # Database setup
       - run: bundle exec rails db:create
-      - run: bundle exec rails db:migrate RAILS_ENV=test
+      - run: bundle exec rails db:migrate
       - run: bundle exec rails db:schema:load
 
       # run tests
