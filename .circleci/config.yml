@@ -14,7 +14,6 @@ jobs:
           PGUSER: root
       - image: circleci/postgres:9.6
         environment:
-          POSTGRES_DB: picup
           POSTGRES_USER: root
           POSTGRES_PASSWORD: root
 
@@ -41,7 +40,7 @@ jobs:
 
       # Database setup
       - run: bundle exec rails db:create
-      - run: bundle exec rails db:migrate RAILS_ENV=test
+      - run: bundle exec rails db:migrate
       - run: bundle exec rails db:schema:load
 
       # run tests
