@@ -1,7 +1,10 @@
 FROM ruby:2.4-stretch
 
 RUN apt-get update -qq && \
-    apt-get install -y build-essential libpq-dev nodejs postgresql-client
+    apt-get install -y build-essential libpq-dev postgresql-client
+
+RUN curl -sL https://deb.nodesource.com/setup_8.x | bash - && \
+    apt-get install -y nodejs
 
 RUN mkdir /app
 
